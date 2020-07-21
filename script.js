@@ -1,11 +1,11 @@
-function init() {    
-    $('#btn').click(startToPlay);
+function init() {  
+    $('#grid>div').click(startToPlay);
 }
 
 //Funzione per il gioco GOAL: ad ogni click dall'url della chiamata ajax riceviamo un numero random. A seconda del valore cambia il colore del div nella griglia
 
 function startToPlay() {
-    var divActive = $('#grid>div.active');
+    var divActive = $(this);
     $.ajax({
         url : 'https://flynn.boolean.careers/exercises/api/random/int',
         method : 'GET',
@@ -29,7 +29,5 @@ function startToPlay() {
             console.log(error);
         }
     })
-    divActive.removeClass('active');
-    divActive.next().addClass('active');
 }
 $(document).ready(init);
