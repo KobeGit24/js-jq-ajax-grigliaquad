@@ -6,28 +6,33 @@ function init() {
 
 function startToPlay() {
     var divActive = $(this);
-    $.ajax({
-        url : 'https://flynn.boolean.careers/exercises/api/random/int',
-        method : 'GET',
-        success : function (data,state) {
-            var response = data.response;
-            var success = data.success;
-            if (success) {
-                    if (response<= 5) {
-                        divActive.append(response).addClass('yellow');
-                    } else {
-                        divActive.append(response).addClass('green');
-                    }
-            } else {
-                console.log('error');
+
+    if (divActive.hasClass('yellow') || divActive.hasClass('green')) {
+        alert('gia hai giocato in questo riquadro');
+    } else {   
+        $.ajax({
+            url : 'https://flynn.boolean.careers/exercises/api/random/int',
+            method : 'GET',
+            success : function (data,state) {
+                var response = data.response;
+                var success = data.success;
+                if (success) {
+                        if (response<= 5) {
+                            divActive.append(response).addClass('yellow');
+                        } else {
+                            divActive.append(response).addClass('green');
+                        }
+                } else {
+                    console.log('error');
+                }
+                   },
+            error : function (request,state,error) {
+           
+                console.log(request);
+                console.log(state);
+                console.log(error);
             }
-               },
-        error : function (request,state,error) {
-       
-            console.log(request);
-            console.log(state);
-            console.log(error);
-        }
-    })
+        })
+    }
 }
 $(document).ready(init);
