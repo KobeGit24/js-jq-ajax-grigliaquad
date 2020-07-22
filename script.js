@@ -37,6 +37,8 @@ function startToPlay() {
     }
 }
 
+//Funzione per la generazione della griglia
+
 function gridSystem() {
     var grid = $('#grid');
     for (var i = 0; i < 36; i++) {
