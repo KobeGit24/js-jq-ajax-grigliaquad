@@ -38,6 +38,7 @@ h1 {
     font-weight: 600;
     color: #ffffff;
     text-shadow: 3px 3px 3px #2c2c2c;
+    cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
