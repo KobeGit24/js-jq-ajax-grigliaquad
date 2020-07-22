@@ -1,4 +1,5 @@
 function init() {  
+    gridSystem();
     $('#grid>div').click(startToPlay);
 }
 
@@ -34,5 +35,14 @@ function startToPlay() {
             }
         })
     }
+}
+
+function gridSystem() {
+    var grid = $('#grid');
+    for (var i = 0; i < 36; i++) {
+        var template = $('#template>div').clone();
+        grid.append(template);
+    }
+    
 }
 $(document).ready(init);
